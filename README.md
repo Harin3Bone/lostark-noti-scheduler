@@ -10,6 +10,16 @@
 
 This project make for people want to receive notification on **Discord** of any Event, Boss Field, Chaos Gate and Secret Merchant.
 
+## Story Task
+
+### Phase 1
+- [ ] SCH-001 Secret merchant schedule
+- [ ] SCH-002 Chaos gate schedule
+- [ ] SCH-003 Boss field schedule
+- [ ] SCH-004 Adventure island schedule
+- [ ] NTF-001 Notify on **Discord**
+- [ ] NTF-002 Notify on **Line**
+
 ## Contributor
 
 [![](https://img.shields.io/badge/Harin3Bone-181717?style=flat&logo=github&logoColor=ffffff)](https://github.com/Harin3Bone)
