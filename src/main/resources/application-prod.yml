@@ -1,0 +1,3 @@
+lostark:
+  trigger:
+    secretMerchant: "0 0 */2 * * ? *"
