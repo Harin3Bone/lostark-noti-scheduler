@@ -2,3 +2,7 @@ server:
   port: 8080
   servlet:
     context-path: /lostark/notify
+
+spring:
+  application:
+    name: lost-ark-notify-scheduler
