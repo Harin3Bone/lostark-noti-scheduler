@@ -19,10 +19,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class SecretMerchantJob implements Job {
 
+    private TriggerConfig triggerConfig;
+
     @Autowired
     private SecretMerchantServiceImpl secretMerchantService;
-
-    private TriggerConfig triggerConfig;
 
     private SecretMerchantJob(TriggerConfig triggerConfig) {
         this.triggerConfig = triggerConfig;
