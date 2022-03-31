@@ -1,3 +1,7 @@
 lostark:
   trigger:
-    secretMerchant: "0 0 */2 * * ? *"
+    secretMerchant: "0 30 1/2 * * ? *"
+
+logging:
+  level:
+    com.player.casual.lostark.notification: info
