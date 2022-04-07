@@ -1,6 +1,7 @@
 package com.player.casual.lostark.notification.job;
 
 import com.player.casual.lostark.notification.config.TriggerConfig;
+import com.player.casual.lostark.notification.service.impl.DiscordServiceImpl;
 import com.player.casual.lostark.notification.service.impl.SecretMerchantServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.quartz.CronScheduleBuilder;
@@ -15,22 +16,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.time.ZonedDateTime;
+
 @Log4j2
 @Component
 public class SecretMerchantJob implements Job {
 
-    private TriggerConfig triggerConfig;
+    private final TriggerConfig triggerConfig;
 
     @Autowired
     private SecretMerchantServiceImpl secretMerchantService;
 
-    private SecretMerchantJob(TriggerConfig triggerConfig) {
+    @Autowired
+    private DiscordServiceImpl discordService;
+
+    public SecretMerchantJob(TriggerConfig triggerConfig) {
         this.triggerConfig = triggerConfig;
     }
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        log.info("SecretMerchantJob Execute.");
+        log.info("SecretMerchantJob Execute, ");
+        var continentList = secretMerchantService.getMerchantTown(ZonedDateTime.now());
+        discordService.sendMessage(continentList.toString());
     }
 
     @Bean

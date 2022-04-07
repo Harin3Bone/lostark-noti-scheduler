@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface SecretMerchantService {
 
-    List<?> getTownByTime(ZonedDateTime zonedDateTime);
+    List<?> getMerchantTown(ZonedDateTime zonedDateTime);
 }
