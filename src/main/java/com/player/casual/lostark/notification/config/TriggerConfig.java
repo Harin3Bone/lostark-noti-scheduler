@@ -8,8 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(prefix = "lostark.trigger")
+@ConfigurationProperties(prefix = "service.trigger")
 public class TriggerConfig {
 
     private String secretMerchant;
+
 }

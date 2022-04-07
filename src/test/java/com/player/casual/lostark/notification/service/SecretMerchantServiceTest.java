@@ -1,6 +1,6 @@
 package com.player.casual.lostark.notification.service;
 
-import com.player.casual.lostark.notification.enums.Town;
+import com.player.casual.lostark.notification.enums.Continent;
 import com.player.casual.lostark.notification.exception.InvalidException;
 import com.player.casual.lostark.notification.mock.SecretMerchantMock;
 import com.player.casual.lostark.notification.service.impl.SecretMerchantServiceImpl;
@@ -26,8 +26,8 @@ public class SecretMerchantServiceTest {
     void getMerchantTimeTestCaseList3() {
         var mockLst = SecretMerchantMock.getZonedDateTimeMock3();
         for (var mock : mockLst) {
-            var actual = secretMerchantService.getTownByTime(mock);
-            assertEquals(Arrays.asList(Town.RETHAMIS, Town.NORTH_VERN, Town.YORN), actual);
+            var actual = secretMerchantService.getMerchantTown(mock);
+            assertEquals(Arrays.asList(Continent.RETHAMIS, Continent.NORTH_VERN, Continent.YORN), actual);
             assertEquals(3, actual.size());
         }
     }
@@ -36,8 +36,8 @@ public class SecretMerchantServiceTest {
     void getMerchantTimeTestCaseList5() {
         var mockLst = SecretMerchantMock.getZonedDateTimeMock5();
         for (var mock : mockLst) {
-            var actual = secretMerchantService.getTownByTime(mock);
-            assertEquals(Arrays.asList(Town.YUDIA, Town.EAST_LUTERRA, Town.ANIKA, Town.SHUSHIRE, Town.FEITON), actual);
+            var actual = secretMerchantService.getMerchantTown(mock);
+            assertEquals(Arrays.asList(Continent.YUDIA, Continent.EAST_LUTERRA, Continent.ANIKA, Continent.SHUSHIRE, Continent.FEITON), actual);
             assertEquals(5, actual.size());
         }
     }
@@ -46,8 +46,8 @@ public class SecretMerchantServiceTest {
     void getMerchantTimeTestCaseList6() {
         var mockLst = SecretMerchantMock.getZonedDateTimeMock6();
         for (var mock : mockLst) {
-            var actual = secretMerchantService.getTownByTime(mock);
-            assertEquals(Arrays.asList(Town.WEST_RUTTERRA, Town.EAST_LUTERRA, Town.TORTOYK, Town.ARTHETINE, Town.ROHENDEL, Town.PUNIKA), actual);
+            var actual = secretMerchantService.getMerchantTown(mock);
+            assertEquals(Arrays.asList(Continent.WEST_RUTTERRA, Continent.EAST_LUTERRA, Continent.TORTOYK, Continent.ARTHETINE, Continent.ROHENDEL, Continent.PUNIKA), actual);
             assertEquals(6, actual.size());
         }
     }
@@ -56,8 +56,8 @@ public class SecretMerchantServiceTest {
     void getMerchantTimeTestCaseList8() {
         var mockLst = SecretMerchantMock.getZonedDateTimeMock8();
         for (var mock : mockLst) {
-            var actual = secretMerchantService.getTownByTime(mock);
-            assertEquals(Arrays.asList(Town.RETHAMIS, Town.YUDIA, Town.EAST_LUTERRA, Town.ANIKA, Town.NORTH_VERN, Town.SHUSHIRE, Town.YORN, Town.FEITON), actual);
+            var actual = secretMerchantService.getMerchantTown(mock);
+            assertEquals(Arrays.asList(Continent.RETHAMIS, Continent.YUDIA, Continent.EAST_LUTERRA, Continent.ANIKA, Continent.NORTH_VERN, Continent.SHUSHIRE, Continent.YORN, Continent.FEITON), actual);
             assertEquals(8,actual.size());
         }
     }
@@ -66,8 +66,8 @@ public class SecretMerchantServiceTest {
     void getMerchantTimeTestCaseList9Value() {
         var mockLst = SecretMerchantMock.getZonedDateTimeMock9();
         for (var mock : mockLst) {
-            var actual = secretMerchantService.getTownByTime(mock);
-            assertEquals(Arrays.asList(Town.RETHAMIS, Town.WEST_RUTTERRA, Town.EAST_LUTERRA, Town.TORTOYK, Town.ARTHETINE, Town.NORTH_VERN, Town.ROHENDEL, Town.YORN, Town.PUNIKA), actual);
+            var actual = secretMerchantService.getMerchantTown(mock);
+            assertEquals(Arrays.asList(Continent.RETHAMIS, Continent.WEST_RUTTERRA, Continent.EAST_LUTERRA, Continent.TORTOYK, Continent.ARTHETINE, Continent.NORTH_VERN, Continent.ROHENDEL, Continent.YORN, Continent.PUNIKA), actual);
             assertEquals(9,actual.size());
         }
     }
@@ -76,8 +76,8 @@ public class SecretMerchantServiceTest {
     void getMerchantTimeTestCaseList10Value() {
         var mockLst = SecretMerchantMock.getZonedDateTimeMock10();
         for (var mock : mockLst) {
-            var actual = secretMerchantService.getTownByTime(mock);
-            assertEquals(Arrays.asList(Town.YUDIA, Town.WEST_RUTTERRA, Town.EAST_LUTERRA, Town.TORTOYK, Town.ANIKA, Town.ARTHETINE, Town.SHUSHIRE, Town.ROHENDEL, Town.FEITON, Town.PUNIKA), actual);
+            var actual = secretMerchantService.getMerchantTown(mock);
+            assertEquals(Arrays.asList(Continent.YUDIA, Continent.WEST_RUTTERRA, Continent.EAST_LUTERRA, Continent.TORTOYK, Continent.ANIKA, Continent.ARTHETINE, Continent.SHUSHIRE, Continent.ROHENDEL, Continent.FEITON, Continent.PUNIKA), actual);
             assertEquals(10, actual.size());
         }
     }
@@ -86,7 +86,7 @@ public class SecretMerchantServiceTest {
     void getMerchantTimeTestCaseException() {
         var actualLst = SecretMerchantMock.getZonedDateTimeMockFail();
         for (var actual : actualLst) {
-            assertThatThrownBy(() -> secretMerchantService.getTownByTime(actual)).isInstanceOf(InvalidException.class);
+            assertThatThrownBy(() -> secretMerchantService.getMerchantTown(actual)).isInstanceOf(InvalidException.class);
         }
     }
 }

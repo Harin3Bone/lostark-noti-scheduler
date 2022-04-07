@@ -1,4 +1,4 @@
-lostark:
+service:
   trigger:
     secretMerchant: "*/2 * * * * ? *"
 
