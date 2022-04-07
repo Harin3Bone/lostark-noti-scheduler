@@ -3,7 +3,7 @@ package com.player.casual.lostark.notification.enums;
 import lombok.Getter;
 
 @Getter
-public enum Town {
+public enum Continent {
 
     RETHAMIS("Rethamis"),
     YUDIA("Yudia"),
@@ -22,7 +22,7 @@ public enum Town {
 
     private final String name;
 
-    private Town(String name) {
+    private Continent(String name) {
         this.name = name;
     }
 
