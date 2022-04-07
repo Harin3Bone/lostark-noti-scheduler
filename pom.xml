@@ -15,6 +15,12 @@
 	<description>Project for push notify to discord about Lost Ark event</description>
 	<properties>
 		<java.version>17</java.version>
+		<json.version>20211205</json.version>
+		<jda.version>v4.4.0</jda.version>
+		<jupiter.version>5.3.2</jupiter.version>
+		<jupiter.engine.version>5.8.2</jupiter.engine.version>
+		<jupiter.param.version>5.8.2</jupiter.param.version>
+		<jupiter.api.version>5.8.2</jupiter.api.version>
 	</properties>
 	<dependencies>
 		<!-- Quartz -->
@@ -27,6 +33,20 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- JSON -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+
+		<!-- Java Discord API -->
+		<dependency>
+			<groupId>com.github.DV8FromTheWorld</groupId>
+			<artifactId>JDA</artifactId>
+			<version>${jda.version}</version>
 		</dependency>
 
 		<!-- Configuration Processor -->
@@ -54,19 +74,19 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.3.2</version>
+			<version>${jupiter.engine.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-params</artifactId>
-			<version>5.3.2</version>
+			<version>${jupiter.param.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.3.2</version>
+			<version>${jupiter.api.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -84,6 +104,14 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<repositories>
+		<!-- Java Discord API -->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
 	<packaging>jar</packaging>
 
