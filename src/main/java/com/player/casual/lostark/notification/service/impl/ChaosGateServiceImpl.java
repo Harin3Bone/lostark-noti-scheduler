@@ -10,10 +10,13 @@ import java.util.List;
 @Service
 public class ChaosGateServiceImpl implements ChaosGateService {
 
-    private static final List<Continent> continents = Arrays.asList(Continent.ROHENDEL, Continent.YORN, Continent.FEITON, Continent.PUNIKA, Continent.SOUTH_VERN);
+    @Override
+    public List<Continent> getChaosGateContinents() {
+        return Arrays.asList(Continent.ROHENDEL, Continent.YORN, Continent.FEITON, Continent.PUNIKA, Continent.SOUTH_VERN);
+    }
 
     @Override
-    public String getMessage() {
+    public String getMessage(List<Continent> continents) {
         StringBuilder sb = new StringBuilder();
         for (Continent continent : continents) {
             sb.append(continent.getName());
