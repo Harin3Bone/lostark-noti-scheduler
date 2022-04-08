@@ -1,0 +1,7 @@
+service:
+  trigger:
+    secretMerchant: "*/2 * * * * ? *"
+
+logging:
+  level:
+    com.player.casual.lostark.notification: debug

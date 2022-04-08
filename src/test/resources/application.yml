@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /lostark/notify
+
+spring:
+  application:
+    name: lost-ark-notify-scheduler
+
+lostark:
+  trigger:
+    secretMerchant: "0 30 1/2 * * ? *"
