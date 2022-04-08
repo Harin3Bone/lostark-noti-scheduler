@@ -18,9 +18,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import java.time.ZoneId;
-import java.util.TimeZone;
-
 @Log4j2
 @Component
 public class ChaosGateJob implements Job {
@@ -42,9 +39,9 @@ public class ChaosGateJob implements Job {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        log.info("ChaosGateJob Execute, ");
-        var continentList = chaosGateService.getMessage();
-        var message = String.format(NotifyMsg.CHAOS_GATE, continentList);
+        log.info("ChaosGateJob Execute.");
+        var continents = chaosGateService.getChaosGateContinents();
+        var message = String.format(NotifyMsg.CHAOS_GATE, chaosGateService.getMessage(continents));
         discordService.sendMessage(message);
     }
 
@@ -61,7 +58,7 @@ public class ChaosGateJob implements Job {
     @Bean
     public Trigger chaosGateJobTrigger(@Qualifier(JOB_NAME) JobDetail job) {
         log.debug("chaosGateJobTrigger trigger= " + triggerConfig.getChaosGate());
-        CronScheduleBuilder.cronSchedule(triggerConfig.getChaosGate()).inTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
+        CronScheduleBuilder.cronSchedule(triggerConfig.getChaosGate());
         return TriggerBuilder.newTrigger().forJob(job)
                 .withIdentity(TRIGGER_NAME)
                 .withDescription("")

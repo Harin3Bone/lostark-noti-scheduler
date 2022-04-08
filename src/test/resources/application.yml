@@ -13,4 +13,5 @@ service:
     serverId: ${discord.server}
     channelId: ${discord.channel}
   trigger:
-    secretMerchant: "0 30 1/2 * * ? *"
+    secretMerchant: "0 30 * ? * 1-7 *"
+    chaosGate: "0 0 * ? * 1,3,6,7 *"
