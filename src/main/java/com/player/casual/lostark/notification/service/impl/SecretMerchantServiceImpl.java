@@ -15,8 +15,6 @@ import java.util.List;
 @Qualifier("SecretMerchantServiceImpl")
 public class SecretMerchantServiceImpl implements SecretMerchantService {
 
-    private static final String TRIGGER_NAME = "SecretMerchant";
-
     @Override
     public List<Continent> getMerchantTown(ZonedDateTime zonedDateTime) {
         var time = TimeUtils.zonedDatetimeToTimeFormat(zonedDateTime);

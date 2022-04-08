@@ -21,6 +21,6 @@ public class MessageUtils {
             sb.append(continent.getName());
             sb.append(", ");
         }
-        return sb.toString().substring(0, sb.length() - 1);
+        return sb.toString().substring(0, sb.length() - 2);
     }
 }

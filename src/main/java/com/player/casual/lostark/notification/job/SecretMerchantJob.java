@@ -15,6 +15,7 @@ import org.quartz.JobExecutionException;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +24,9 @@ import java.time.ZonedDateTime;
 @Log4j2
 @Component
 public class SecretMerchantJob implements Job {
+
+    private static final String JOB_NAME = "SecretMerchantJob";
+    private static final String TRIGGER_NAME = "SecretMerchantTrigger";
 
     private final TriggerConfig triggerConfig;
 
@@ -38,25 +42,26 @@ public class SecretMerchantJob implements Job {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        log.info("SecretMerchantJob Execute, ");
+        log.info("SecretMerchantJob Execute.");
         var continentList = secretMerchantService.getMerchantTown(ZonedDateTime.now());
         var message = String.format(NotifyMsg.SECRET_MERCHANT, MessageUtils.continentListToString(continentList));
         discordService.sendMessage(message);
     }
 
     @Bean
-    public JobDetail jobDetail() {
-        return JobBuilder.newJob().ofType(SecretMerchantJob.class)
+    @Qualifier(JOB_NAME)
+    public JobDetail secretMerchantJobDetail() {
+        return JobBuilder.newJob().ofType(this.getClass())
                 .storeDurably()
-                .withIdentity("SecretMerchantJob")
+                .withIdentity(JOB_NAME)
                 .withDescription("")
                 .build();
     }
 
     @Bean
-    public Trigger trigger(JobDetail job) {
+    public Trigger secretMerchantJobTrigger(@Qualifier(JOB_NAME) JobDetail job) {
         return TriggerBuilder.newTrigger().forJob(job)
-                .withIdentity("SecretMerchantTrigger")
+                .withIdentity(TRIGGER_NAME)
                 .withDescription("")
                 .withSchedule(CronScheduleBuilder.cronSchedule(triggerConfig.getSecretMerchant()))
                 .build();
