@@ -17,8 +17,7 @@ This project make for people want to receive notification on **Discord** of any 
 - [ ] SCH-002 Chaos gate schedule
 - [ ] SCH-003 Boss field schedule
 - [ ] SCH-004 Adventure island schedule
-- [ ] NTF-001 Notify on **Discord**
-- [ ] NTF-002 Notify on **Line**
+- [x] NTF-001 Notify on **Discord**
 
 ## Contributor
 
