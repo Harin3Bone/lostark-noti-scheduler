@@ -12,5 +12,6 @@ import org.springframework.context.annotation.Configuration;
 public class TriggerConfig {
 
     private String secretMerchant;
+    private String chaosGate;
 
 }
