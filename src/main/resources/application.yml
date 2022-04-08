@@ -6,3 +6,9 @@ server:
 spring:
   application:
     name: lost-ark-notify-scheduler
+
+service:
+  discord:
+    token: ${discord.token}
+    serverId: ${discord.server}
+    channelId: ${discord.channel}

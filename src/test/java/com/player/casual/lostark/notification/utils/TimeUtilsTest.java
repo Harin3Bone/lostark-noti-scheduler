@@ -48,7 +48,7 @@ public class TimeUtilsTest {
     }
 
     @Test
-    void zonedDateTimeToTimeFormatException() {
+    void zonedDateTimeToTimeFormatNullPointerException() {
         assertThatThrownBy(() -> TimeUtils.zonedDatetimeToTimeFormat(null)).isInstanceOf(NullPointerException.class);
     }
 
