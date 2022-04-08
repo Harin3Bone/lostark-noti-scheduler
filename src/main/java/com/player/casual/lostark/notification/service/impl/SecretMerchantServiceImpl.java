@@ -28,4 +28,18 @@ public class SecretMerchantServiceImpl implements SecretMerchantService {
             default -> new ArrayList<>();
         };
     }
+
+    @Override
+    public String getMessage(List<Continent> continents) {
+        if (continents.isEmpty()) {
+            return "N/A";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Continent continent : continents) {
+            sb.append(continent.getName());
+            sb.append(", ");
+        }
+        return sb.toString().substring(0, sb.length() - 2);
+    }
 }
