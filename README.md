@@ -14,10 +14,14 @@ This project make for people want to receive notification on **Discord** of any 
 
 ### Phase 1
 - [x] SCH-001 Secret merchant schedule
-- [ ] SCH-002 Chaos gate schedule
+- [x] SCH-002 Chaos gate schedule
 - [ ] SCH-003 Boss field schedule
-- [ ] SCH-004 Adventure island schedule
 - [x] NTF-001 Notify on **Discord**
+
+### Phase 2
+- [ ] SCH-004 Adventure island schedule
+- [ ] SCH-005 Island schedule
+- [ ] SCH-006 Wanderer merchant schedule
 
 ## Contributor
 
