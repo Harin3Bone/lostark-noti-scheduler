@@ -7,6 +7,10 @@ spring:
   application:
     name: lost-ark-notify-scheduler
 
-lostark:
+service:
+  discord:
+    token: ${discord.token}
+    serverId: ${discord.server}
+    channelId: ${discord.channel}
   trigger:
     secretMerchant: "0 30 1/2 * * ? *"

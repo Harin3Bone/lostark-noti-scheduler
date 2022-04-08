@@ -1,7 +1,6 @@
 package com.player.casual.lostark.notification.service;
 
 import com.player.casual.lostark.notification.enums.Continent;
-import com.player.casual.lostark.notification.exception.InvalidException;
 import com.player.casual.lostark.notification.mock.SecretMerchantMock;
 import com.player.casual.lostark.notification.service.impl.SecretMerchantServiceImpl;
 import lombok.extern.log4j.Log4j2;
@@ -12,7 +11,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Log4j2
@@ -83,10 +81,10 @@ public class SecretMerchantServiceTest {
     }
 
     @Test
-    void getMerchantTimeTestCaseException() {
+    void getMerchantTimeTestCaseNotFound() {
         var actualLst = SecretMerchantMock.getZonedDateTimeMockFail();
         for (var actual : actualLst) {
-            assertThatThrownBy(() -> secretMerchantService.getMerchantTown(actual)).isInstanceOf(InvalidException.class);
+            assertEquals(0,secretMerchantService.getMerchantTown(actual).size());
         }
     }
 }
