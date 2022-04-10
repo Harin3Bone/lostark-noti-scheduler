@@ -9,6 +9,6 @@ spring:
 
 service:
   discord:
-    token: ${discord.token}
-    serverId: ${discord.server}
-    channelId: ${discord.channel}
+    token: ${DISCORD_TOKEN}
+    serverId: ${DISCORD_SERVER}
+    channelId: ${DISCORD_CHANNEL}
