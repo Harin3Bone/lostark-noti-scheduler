@@ -1,0 +1,9 @@
+service:
+  trigger:
+    secretMerchant: "*/2 * * ? * 1-7 *"
+    chaosGate: "*/2 * * ? * 1-7 *"
+    bossField: "*/2 * * ? * 1-7 *"
+
+logging:
+  level:
+    com.player.casual.lostark.notification: debug

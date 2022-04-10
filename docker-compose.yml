@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  lostark_notify:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lostark/notify:${VERSION:-latest}
+    container_name: lostark_notify
+    ports:
+      - ${SERVER_PORT:-8080}:8080
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+      DISCORD_SERVER: ${DISCORD_SERVER}
+      DISCORD_CHANNEL: ${DISCORD_CHANNEL}
+    restart: unless-stopped

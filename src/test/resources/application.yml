@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /lostark/notify
+
+spring:
+  application:
+    name: lost-ark-notify-scheduler
+
+service:
+  discord:
+    token: ${discord.token}
+    serverId: ${discord.server}
+    channelId: ${discord.channel}
+  trigger:
+    secretMerchant: "0 30 * ? * 1-7 *"
+    chaosGate: "0 0 * ? * 1,3,6,7 *"
+    bossField: "0 0 * ? * 2,5,7 *"

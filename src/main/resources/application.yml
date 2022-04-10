@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /lostark/notify
+
+spring:
+  application:
+    name: lost-ark-notify-scheduler
+
+service:
+  discord:
+    token: ${DISCORD_TOKEN}
+    serverId: ${DISCORD_SERVER}
+    channelId: ${DISCORD_CHANNEL}
