@@ -1,7 +1,8 @@
 service:
   trigger:
-    secretMerchant: "*/2 * * * * ? *"
-    chaosGate: "*/2 * * * * ? *"
+    secretMerchant: "*/2 * * ? * 1-7 *"
+    chaosGate: "*/2 * * ? * 1-7 *"
+    bossField: "*/2 * * ? * 1-7 *"
 
 logging:
   level:

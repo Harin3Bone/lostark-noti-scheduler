@@ -1,7 +1,8 @@
 package com.player.casual.lostark.notification.job;
 
 import com.player.casual.lostark.notification.config.TriggerConfig;
-import com.player.casual.lostark.notification.service.impl.ChaosGateServiceImpl;
+import com.player.casual.lostark.notification.constant.NotifyMsg;
+import com.player.casual.lostark.notification.service.impl.BossFieldServiceImpl;
 import com.player.casual.lostark.notification.service.impl.DiscordServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.quartz.CronScheduleBuilder;
@@ -19,33 +20,33 @@ import org.springframework.stereotype.Component;
 
 @Log4j2
 @Component
-public class ChaosGateJob implements Job {
+public class BossFieldJob implements Job {
 
-    private static final String JOB_NAME = "ChaosGateJob";
-    private static final String TRIGGER_NAME = "ChaosGateTrigger";
+    private static final String JOB_NAME = "BossFieldJob";
+    private static final String TRIGGER_NAME = "BossFieldTrigger";
 
     private final TriggerConfig triggerConfig;
 
     @Autowired
-    private ChaosGateServiceImpl chaosGateService;
+    private BossFieldServiceImpl bossFieldService;
 
     @Autowired
     private DiscordServiceImpl discordService;
 
-    public ChaosGateJob(TriggerConfig triggerConfig) {
+    public BossFieldJob(TriggerConfig triggerConfig) {
         this.triggerConfig = triggerConfig;
     }
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        log.info("ChaosGateJob Execute.");
-        var continents = chaosGateService.getChaosGateContinents();
-        discordService.sendMessage(chaosGateService.getMessage(continents));
+        log.info("BossFieldJob Execute.");
+        var message = String.format(NotifyMsg.CHAOS_GATE, bossFieldService.getMessage());
+        discordService.sendMessage(message);
     }
 
     @Bean
     @Qualifier(JOB_NAME)
-    public JobDetail chaosGateJobDetail() {
+    public JobDetail bossFieldJobDetail() {
         return JobBuilder.newJob().ofType(this.getClass())
                 .storeDurably()
                 .withIdentity(JOB_NAME)
@@ -54,12 +55,12 @@ public class ChaosGateJob implements Job {
     }
 
     @Bean
-    public Trigger chaosGateJobTrigger(@Qualifier(JOB_NAME) JobDetail job) {
+    public Trigger bossFieldJobTrigger(@Qualifier(JOB_NAME) JobDetail job) {
         CronScheduleBuilder.cronSchedule(triggerConfig.getChaosGate());
         return TriggerBuilder.newTrigger().forJob(job)
                 .withIdentity(TRIGGER_NAME)
                 .withDescription("")
-                .withSchedule(CronScheduleBuilder.cronSchedule(triggerConfig.getChaosGate()))
+                .withSchedule(CronScheduleBuilder.cronSchedule(triggerConfig.getBossField()))
                 .build();
     }
 }
