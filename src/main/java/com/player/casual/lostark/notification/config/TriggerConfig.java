@@ -13,5 +13,6 @@ public class TriggerConfig {
 
     private String secretMerchant;
     private String chaosGate;
+    private String bossField;
 
 }

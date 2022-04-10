@@ -15,7 +15,7 @@ This project make for people want to receive notification on **Discord** of any 
 ### Phase 1
 - [x] SCH-001 Secret merchant schedule
 - [x] SCH-002 Chaos gate schedule
-- [ ] SCH-003 Boss field schedule
+- [x] SCH-003 Boss field schedule
 - [x] NTF-001 Notify on **Discord**
 
 ### Phase 2

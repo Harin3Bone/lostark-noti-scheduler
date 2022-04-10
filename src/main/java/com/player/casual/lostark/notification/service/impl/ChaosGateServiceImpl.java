@@ -1,5 +1,6 @@
 package com.player.casual.lostark.notification.service.impl;
 
+import com.player.casual.lostark.notification.constant.NotifyMsg;
 import com.player.casual.lostark.notification.enums.Continent;
 import com.player.casual.lostark.notification.service.ChaosGateService;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,6 @@ public class ChaosGateServiceImpl implements ChaosGateService {
             sb.append(", ");
         }
 
-        return sb.toString().substring(0, sb.length() - 2);
+        return String.format(NotifyMsg.CHAOS_GATE,sb.toString().substring(0, sb.length() - 2));
     }
 }
