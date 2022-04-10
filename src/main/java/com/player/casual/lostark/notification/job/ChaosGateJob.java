@@ -1,7 +1,6 @@
 package com.player.casual.lostark.notification.job;
 
 import com.player.casual.lostark.notification.config.TriggerConfig;
-import com.player.casual.lostark.notification.constant.NotifyMsg;
 import com.player.casual.lostark.notification.service.impl.ChaosGateServiceImpl;
 import com.player.casual.lostark.notification.service.impl.DiscordServiceImpl;
 import lombok.extern.log4j.Log4j2;
@@ -41,8 +40,7 @@ public class ChaosGateJob implements Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         log.info("ChaosGateJob Execute.");
         var continents = chaosGateService.getChaosGateContinents();
-        var message = String.format(NotifyMsg.CHAOS_GATE, chaosGateService.getMessage(continents));
-        discordService.sendMessage(message);
+        discordService.sendMessage(chaosGateService.getMessage(continents));
     }
 
     @Bean

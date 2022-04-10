@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.player.casual</groupId>
 	<artifactId>lostark.notification</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-ALPHA</version>
 	<name>lostark-notification</name>
 	<description>Project for push notify to discord about Lost Ark event</description>
 	<properties>
