@@ -1,7 +1,6 @@
 package com.player.casual.lostark.notification.job;
 
 import com.player.casual.lostark.notification.config.TriggerConfig;
-import com.player.casual.lostark.notification.constant.NotifyMsg;
 import com.player.casual.lostark.notification.service.impl.BossFieldServiceImpl;
 import com.player.casual.lostark.notification.service.impl.DiscordServiceImpl;
 import lombok.extern.log4j.Log4j2;
@@ -40,8 +39,7 @@ public class BossFieldJob implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         log.info("BossFieldJob Execute.");
-        var message = String.format(NotifyMsg.CHAOS_GATE, bossFieldService.getMessage());
-        discordService.sendMessage(message);
+        discordService.sendMessage(bossFieldService.getMessage());
     }
 
     @Bean
