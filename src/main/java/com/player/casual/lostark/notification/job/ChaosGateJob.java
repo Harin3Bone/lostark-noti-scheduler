@@ -57,7 +57,6 @@ public class ChaosGateJob implements Job {
 
     @Bean
     public Trigger chaosGateJobTrigger(@Qualifier(JOB_NAME) JobDetail job) {
-        log.debug("chaosGateJobTrigger trigger= " + triggerConfig.getChaosGate());
         CronScheduleBuilder.cronSchedule(triggerConfig.getChaosGate());
         return TriggerBuilder.newTrigger().forJob(job)
                 .withIdentity(TRIGGER_NAME)
