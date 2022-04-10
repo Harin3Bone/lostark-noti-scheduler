@@ -8,4 +8,5 @@ import java.util.List;
 public interface SecretMerchantService {
 
     List<Continent> getMerchantTown(ZonedDateTime zonedDateTime);
+    String getMessage(List<Continent> continents);
 }

@@ -15,8 +15,6 @@ import java.util.List;
 @Qualifier("SecretMerchantServiceImpl")
 public class SecretMerchantServiceImpl implements SecretMerchantService {
 
-    private static final String TRIGGER_NAME = "SecretMerchant";
-
     @Override
     public List<Continent> getMerchantTown(ZonedDateTime zonedDateTime) {
         var time = TimeUtils.zonedDatetimeToTimeFormat(zonedDateTime);
@@ -29,5 +27,19 @@ public class SecretMerchantServiceImpl implements SecretMerchantService {
             case "06:30", "18:30" -> Arrays.asList(Continent.RETHAMIS, Continent.WEST_RUTTERRA, Continent.EAST_LUTERRA, Continent.TORTOYK, Continent.ARTHETINE, Continent.NORTH_VERN, Continent.ROHENDEL, Continent.YORN, Continent.PUNIKA);
             default -> new ArrayList<>();
         };
+    }
+
+    @Override
+    public String getMessage(List<Continent> continents) {
+        if (continents.isEmpty()) {
+            return "N/A";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Continent continent : continents) {
+            sb.append(continent.getName());
+            sb.append(", ");
+        }
+        return sb.toString().substring(0, sb.length() - 2);
     }
 }
