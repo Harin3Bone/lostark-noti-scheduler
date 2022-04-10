@@ -3,7 +3,6 @@ package com.player.casual.lostark.notification.service.impl;
 import com.player.casual.lostark.notification.enums.Continent;
 import com.player.casual.lostark.notification.service.SecretMerchantService;
 import com.player.casual.lostark.notification.utils.TimeUtils;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
@@ -12,7 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-@Qualifier("SecretMerchantServiceImpl")
 public class SecretMerchantServiceImpl implements SecretMerchantService {
 
     @Override
